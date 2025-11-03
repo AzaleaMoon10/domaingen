@@ -1,3 +1,3 @@
 Introduction.
 
-Generates cards grouped by domain.
+Generates cards containing weblink suggestions grouped by domain extension.
