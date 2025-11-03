@@ -46,18 +46,16 @@ function cardGen(cards) {
 
 function printCardText(arr) {
     let auxCounter = 0;
-    for(i of arr) {
-        document.getElementById(`card-title-${auxCounter}`).innerHTML = "Domain: " + i[0].split(".")[1];
-        let text ="";
-        for(el of i){
-            text = text.concat("<br><br>", el);
+    for(el of arr) {
+        document.getElementById(`card-title-${auxCounter}`).innerHTML = "Domain: ." + el[0].split(".")[1];
+        let auxText ="";
+        for(word of el){
+            auxText = text.concat("<br><br>", word);
         }
-           document.getElementById(`card-text-${auxCounter}`).innerHTML = text;
+           document.getElementById(`card-text-${auxCounter}`).innerHTML = auxText;
         auxCounter++;
     }
 }
-
-
 
 for(pr of pronoun){
     for(aj of adj){
@@ -72,6 +70,6 @@ for(pr of pronoun){
 }
 
 document.getElementById("body").innerHTML = body;
-cards = document.getElementsByClassName("card-container");
-cardGen(cards);
+cardsHTML = document.getElementsByClassName("card-container");
+cardGen(cardsHTML);
 printCardText(webLinkList);
