@@ -104,19 +104,24 @@ function buttonFunctionality(arrWords, word, arrUnordered) {
 
     let orderedArray = (orderArrOfWebLinks(arrWords, arrUnordered));
     document.getElementById("body").innerHTML = body;
+    addButtonListeners(); // <-- vuelve a asociar los event listeners aqui************
     createColsHTML(orderedArray);
     cardsHTML = document.getElementsByClassName("card-container");
     cardTextGen(cardsHTML);
     printCardText(orderedArray, word, arrWords);
+    console.log("finished");
+}
+
+function addButtonListeners() {
+    document.getElementById("btn-domain").addEventListener("click", function() {buttonFunctionality(domains, "Domain", unorderedWebLinks)});
+    document.getElementById("btn-pronoun").addEventListener("click", function() {buttonFunctionality(pronoun, "Pronoun", unorderedWebLinks)});
+    document.getElementById("btn-adjectives").addEventListener("click", function() {buttonFunctionality(adj, "Adjective", unorderedWebLinks)});
+    document.getElementById("btn-noun").addEventListener("click", function() {buttonFunctionality(noun, "Noun", unorderedWebLinks)});
 }
 
 let unorderedWebLinks = createArrOfWebLinks();
 
 buttonFunctionality(domains,"Domain", unorderedWebLinks);
 
-document.getElementById("btn-domain").addEventListener("click", function() {buttonFunctionality(domains, "Domain", unorderedWebLinks)});
-document.getElementById("btn-pronoun").addEventListener("click", function() {buttonFunctionality(pronoun, "Pronoun", unorderedWebLinks)});
-document.getElementById("btn-adjectives").addEventListener("click", function() {buttonFunctionality(adj, "Adjective", unorderedWebLinks)});
-document.getElementById("btn-noun").addEventListener("click", function() {buttonFunctionality(noun, "Noun", unorderedWebLinks)});
 
 
